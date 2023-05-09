@@ -1,0 +1,26 @@
+.container {
+    max-width: 988px;
+    margin: 0 auto;
+    padding: 20px;
+
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 4px;
+}
+
+.formName {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 24px;
+
+    margin: 0 0 20px 0;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    flex: 1 1 calc(50% - 20px);
+}

@@ -1,0 +1,53 @@
+.wrapper {
+    flex: 1 1 calc(50% - 20px);
+
+    @media screen and (max-width: 767px) {
+        flex: 1 1 100%;
+    }
+}
+
+.react-select__control--is-focused {
+    outline: black solid 1px;
+    border-color: black !important;
+    box-shadow: none !important;
+}
+
+.react-select__placeholder {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+
+    color: hsl(0, 0%, 50%);
+}
+
+.react-select__single-value {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.react-select__option {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.error {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    
+    display: block;
+
+    margin-top: 5px;
+
+    color: red;
+}

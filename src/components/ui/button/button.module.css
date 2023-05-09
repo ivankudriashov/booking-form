@@ -1,0 +1,31 @@
+.button {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+
+    flex: 1 1 calc(50% - 20px);
+
+    width: 100%;
+    min-height: 38px;
+    padding: 8px 8px;
+
+    transition: all 100ms;
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #fff;
+
+    cursor: pointer;
+
+    outline: 0;
+
+    @media screen and (max-width: 767px) {
+        flex: 1 1 100%;
+    }
+}
+
+.button:active {
+    background-color: hsl(0, 0%, 80%);
+}
