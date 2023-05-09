@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 import Form from "../ui/form/Form";
@@ -10,12 +11,17 @@ import { towerOptions, floorOptions, roomOptions } from '../../utils/fieldsOptio
 
 import style from './booking-form.module.css';
 
-const BookingForm = () => {
+const BookingForm = (props) => {
     const { handleSubmit, reset, control } = useForm();
+    const [date, setDate] = useState();
 
-    let dt = new Date();
+    useEffect(() => {
+        setDate(new Date())
+      },
+      []);
 
-    const onSubmit = (data) => {
+    // Очистка формы
+    const onReset = () => {
         reset({
             towel: '',
             floor: '',
@@ -23,8 +29,30 @@ const BookingForm = () => {
             date: '',
             comments: ''
         })
+    }
 
-        console.log(JSON.stringify(data))
+    // Отправка формы
+    const onSubmit = (data) => {
+        let promise = new Promise((resolve, reject) => {
+            resolve();
+        });
+
+        promise.then(res => {
+            onReset();
+
+            console.log(JSON.stringify(data))
+
+            props.setModal({
+                visible: true,
+                content: 'Данные отправлены успешно'
+            })
+        }).catch(e => {
+            props.setModal({
+                visible: true,
+                content: 'Что то пошло не так. Попробуйте отправить данные позже'
+            })
+        })
+
     };
 
     return (
@@ -106,7 +134,7 @@ const BookingForm = () => {
                             showTimeSelect={ true }
                             dateFormat="dd/MM/yyyy HH:mm"
                             locale="ru_RU"
-                            minDate={ dt }
+                            minDate={ date }
                             placeholderText="Выберите дату и время*"
                             timeCaption="Время"
                             error={ error }
@@ -135,13 +163,7 @@ const BookingForm = () => {
 
                     <Button 
                         type="button"
-                        onClick={() => reset({
-                            towel: '',
-                            floor: '',
-                            meetingRoom: '',
-                            date: '',
-                            comments: ''
-                        })}
+                        onClick={() => onReset()}
                     >
                         Очистить форму
                     </Button>

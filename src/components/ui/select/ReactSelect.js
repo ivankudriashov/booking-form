@@ -4,8 +4,9 @@ import './react-select.css';
 
 const ReactSelect = (props) => {
 
+    // Привязка выбранной опции к интерфейсу
     const getValue = (value, options) => 
-            value ? options.find((option) => option.value === value) : ''
+            value ? options.find((option) => option.value === value) : '';
 
     const { options, value, onChange, error, placeholder, className, classNamePrefix, errorMessage } = props;
 
